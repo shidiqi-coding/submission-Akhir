@@ -1,15 +1,31 @@
  import noteComponent from "../src/component/list-item.js";
-import "../src/script/view/my-footer.js";
-import "./script/view/input-form.js"
-import "./script/form-title.js";
-import apps from './styles/apps.js';
+
+
+
+import "./script/component-web/index.js";
+
+import  './styles/responsive.css';
+import  './styles/loader.css';
+
+import "./styles/style.css";
+//import 'regenerator-runtime';
 
 document.addEventListener('DOMContentLoaded', () =>{
   customElements.define("note-list",noteComponent);
 
 });
 
-apps();
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+  
+
+
+  loader.classList.add("loader-hidden");
+
+  loader.addEventListener("transitioned", () => {
+      document.body.removeChild("loader");
+  })
+})
 //document.querySelector('.btn').className = 'fa fa-star';
 
 //document.addEventListener('DOMContentLoaded', () =>{
